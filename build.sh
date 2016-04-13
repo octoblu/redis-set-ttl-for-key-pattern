@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APP_NAME=redis-set-ttl-for-key-pattern
+APP_NAME='redis-set-ttl-for-key-pattern'
 TMP_DIR=$PWD/tmp
 IMAGE_NAME=local/$APP_NAME
 
@@ -9,11 +9,10 @@ build_on_docker() {
 }
 
 build_on_local() {
-  env GOOS=linux go build -a -tags netgo -installsuffix cgo -ldflags '-w' -o "${TMP_DIR}/vulcand" .
+  env GOOS=linux go build -a -tags netgo -installsuffix cgo -ldflags '-w' -o "${TMP_DIR}/${APP_NAME}" .
 }
 
 copy() {
-  cp $TMP_DIR/$APP_NAME .
   cp $TMP_DIR/$APP_NAME entrypoint/
 }
 
@@ -65,4 +64,4 @@ main() {
   fi
   exit $?
 }
-main
+main $@
