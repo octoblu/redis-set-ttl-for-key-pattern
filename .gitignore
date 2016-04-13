@@ -22,3 +22,5 @@ _testmain.go
 *.exe
 *.test
 *.prof
+redis-set-ttl-for-key-pattern
+entrypoint/redis-set-ttl-for-key-pattern
